@@ -47,27 +47,27 @@ OmegaSN::OmegaSN(std::vector< double >& values, double firstdata, unsigned int n
 
 OmegaSN::~OmegaSN()
 {
-  delete(states);
+  delete[] states;
   states = NULL;
-  for(unsigned int i = 0; i < 3; i++){delete(S12P[i]);}
-  delete [] S12P;
+  for(unsigned int i = 0; i < 3; i++){delete[] S12P[i];}
+  delete[] S12P;
   S12P = NULL;
 
   for(unsigned int i = 0; i < nbSegments; i++)
   {
     for(unsigned int j = 0; j < nbStates; j++)
     {
-      delete(Q[i][j]);
-      delete(lastChpt[i][j]);
-      delete(lastIndState[i][j]);
-      }
-    delete(Q[i]);
-    delete(lastChpt[i]);
-    delete(lastIndState[i]);
+      delete[] Q[i][j];
+      delete[] lastChpt[i][j];
+      delete[] lastIndState[i][j];
+    }
+    delete[] Q[i];
+    delete[] lastChpt[i];
+    delete[] lastIndState[i];
   }
-  delete [] Q;
-  delete [] lastChpt;
-  delete [] lastIndState;
+  delete[] Q;
+  delete[] lastChpt;
+  delete[] lastIndState;
   Q = NULL;
   lastChpt = NULL;
   lastIndState = NULL;

@@ -46,19 +46,19 @@ OmegaOP::OmegaOP(std::vector< double >& values, double firstdata, double beta, u
 
 OmegaOP::~OmegaOP()
 {
-  delete(states);
+  delete[] states;
   states = NULL;
-  for(unsigned int i = 0; i < 3; i++){delete(S12P[i]);}
-  for(unsigned int i = 0; i < nbStates; i++){delete(Q[i]);}
-  for(unsigned int i = 0; i < nbStates; i++){delete(lastChpt[i]);}
-  for(unsigned int i = 0; i < nbStates; i++){delete(lastIndState[i]);}
-  delete [] S12P;
+  for(unsigned int i = 0; i < 3; i++){delete[] S12P[i];}
+  for(unsigned int i = 0; i < nbStates; i++){delete[] Q[i];}
+  for(unsigned int i = 0; i < nbStates; i++){delete[] lastChpt[i];}
+  for(unsigned int i = 0; i < nbStates; i++){delete[] lastIndState[i];}
+  delete[] S12P;
   S12P = NULL;
-  delete [] Q;
+  delete[] Q;
   Q = NULL;
-  delete [] lastChpt;
+  delete[] lastChpt;
   lastChpt = NULL;
-  delete [] lastIndState;
+  delete[] lastIndState;
   lastIndState = NULL;
 }
 
